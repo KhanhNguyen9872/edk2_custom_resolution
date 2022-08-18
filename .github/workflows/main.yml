@@ -14,7 +14,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    name: Build edk2 custom
+    name: Image Build
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -25,7 +25,6 @@ jobs:
           - polaris
           - beryllium-tianma
           - beryllium-ebbg
-
         driver:
           - beryllium
           - polaris
