@@ -35,6 +35,8 @@ jobs:
       - name: Clone repo
         run: |
           mv ./build.sh $HOME
+          mv ./edk2/beryllium.asl $HOME
+          mv ./edk2/polaris.asl $HOME
           cd $HOME
           git clone https://github.com/KhanhNguyen9872/edk2-sdm845.git --depth=1
           git clone https://github.com/KhanhNguyen9872/WOA-Drivers.git
