@@ -22,9 +22,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout repository
-        uses: actions/checkout@v2
 
       - name: Install requires packages
         run: |
@@ -81,8 +78,3 @@ jobs:
       - name: Upload file to temp.sh
         run: |
           curl -T $HOME/edk2-custom-resolution.7z https://temp.sh --progress-bar 
-
-      - name: Clean all file
-        run: |
-          rm -rf $HOME/* 2> /dev/null
-          exit
