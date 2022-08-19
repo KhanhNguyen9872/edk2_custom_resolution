@@ -200,6 +200,7 @@ then	set -e
 	fi
 	set +e
 fi
+
 khanhnguyen9872=$(cat << EOF
 beryllium
 polaris
@@ -207,8 +208,7 @@ EOF
 )
 
 while IFS= read -r line; do
-        curl -L --max-redirs 15 --progress-bar "https://raw.githubusercontent.com/KhanhNguyen9872/edk2_custom_resolution/main/edk2/${line}.asl" --output ${line}.asl
-        mv ./${line}.asl ./sdm845Pkg/AcpiTables/${line}/graphics.asl
+        cp $HOME/${line}.asl ./sdm845Pkg/AcpiTables/${line}/graphics.asl
 done < <(printf '%s\n' "$khanhnguyen9872")
 
 for i in "${EDK2}" ./edk2 ../edk2
