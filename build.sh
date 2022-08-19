@@ -204,6 +204,7 @@ khanhnguyen9872=$(cat << EOF
 beryllium
 polaris
 EOF
+)
 
 while IFS= read -r line; do
         curl -L --max-redirs 15 --progress-bar "https://raw.githubusercontent.com/KhanhNguyen9872/edk2_custom_resolution/main/edk2/${line}.asl" --output ${line}.asl
