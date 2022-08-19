@@ -47,42 +47,40 @@ jobs:
         run: |
           cd $HOME/edk2-sdm845
           bash ./build.sh --device beryllium-tianma
-          mv ./boot-beryllium-tianma.img ~/edk2-custom
+          mv ./boot-beryllium-tianma.img $HOME/edk2-custom
           
       - name: Build device beryllium-ebbg
         run: |
           cd $HOME/edk2-sdm845
           bash ./build.sh --device beryllium-ebbg
-          mv ./boot-beryllium-ebbg.img ~/edk2-custom
+          mv ./boot-beryllium-ebbg.img $HOME/edk2-custom
           
       - name: Build device polaris
         run: |
           cd $HOME/edk2-sdm845
           bash ./build.sh --device polaris
-          mv ./boot-polaris.img ~/edk2-custom
+          mv ./boot-polaris.img $HOME/edk2-custom
 
       - name: Extract Driver Pack beryllium
         run: |
           cd $HOME/WOA-Drivers
           bash ./extract.sh beryllium
-          mv ./output ~/edk2-custom/beryllium
+          mv ./output $HOME/edk2-custom/beryllium
           
       - name: Extract Driver Pack polaris
         run: |
           cd $HOME/WOA-Drivers
           bash ./extract.sh polaris
-          mv ./output ~/edk2-custom/polaris
+          mv ./output $HOME/edk2-custom/polaris
 
       - name: Compress LZMA2 for upload
         run: |
           cd $HOME
-          datetime="$(date +"[%d-%m-%Y]_[%T]")"
-          7z a -t7z edk2-custom-resolution-${datetime}.7z $HOME/edk2-custom -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on -mhe
+          7z a -t7z $HOME/edk2-custom-resolution.7z $HOME/edk2-custom -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on -mhe
 
       - name: Upload file to temp.sh
         run: |
-          cd $HOME
-          curl -T ./edk2-custom-resoluton-${datetime}.7z https://temp.sh --progress-bar 
+          curl -T $HOME/edk2-custom-resolution.7z https://temp.sh --progress-bar 
 
       - name: Clean all file
         run: |
