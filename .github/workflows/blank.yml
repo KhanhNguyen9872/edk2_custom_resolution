@@ -30,15 +30,16 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get -y install build-essential uuid-dev iasl nasm gcc-aarch64-linux-gnu python3-distutils python3-pil python3-git gettext wine wget git curl tar unzip p7zip-full
-          export HOME="$(pwd)"
-          cd $HOME
-          mkdir edk2-custom
+          mkdir $HOME/edk2-custom
 
       - name: Clone repo
         run: |
+          mv ./build.sh $HOME
+          cd $HOME
           git clone https://github.com/KhanhNguyen9872/edk2-sdm845.git --depth=1
           git clone https://github.com/KhanhNguyen9872/WOA-Drivers.git
           mv $HOME/build.sh $HOME/edk2-sdm845/build.sh
+          
 
       - name: Build device beryllium-tianma
         run: |
@@ -72,14 +73,16 @@ jobs:
 
       - name: Compress LZMA2 for upload
         run: |
+          cd $HOME
           datetime="$(date +"[%d-%m-%Y]_[%T]")"
-          7z a -t7z edk2-custom-resolution-${datetime}.7z ~/edk2-custom -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on -mhe
+          7z a -t7z edk2-custom-resolution-${datetime}.7z $HOME/edk2-custom -m0=lzma2:d1024m -mx=9 -aoa -mfb=64 -md=32m -ms=on -mhe
 
       - name: Upload file to temp.sh
         run: |
+          cd $HOME
           curl -T ./edk2-custom-resoluton-${datetime}.7z https://temp.sh --progress-bar 
 
       - name: Clean all file
         run: |
-          rm -rf ~/ 2> /dev/null
+          rm -rf $HOME/* 2> /dev/null
           exit
