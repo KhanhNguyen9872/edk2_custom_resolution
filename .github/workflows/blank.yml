@@ -19,17 +19,6 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    
-    strategy:
-      max-parallel: 8
-      matrix:
-        device:
-          - polaris
-          - beryllium-tianma
-          - beryllium-ebbg
-        driver:
-          - beryllium
-          - polaris
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -51,17 +40,35 @@ jobs:
           git clone https://github.com/KhanhNguyen9872/WOA-Drivers.git
           mv $HOME/build.sh $HOME/edk2-sdm845/build.sh
 
-      - name: Build device ${{ matrix.device }}
+      - name: Build device beryllium-tianma
         run: |
           cd $HOME/edk2-sdm845
-          bash ./build.sh --device ${{ matrix.device }}
-          mv ./boot-${{ marix.device }}.img ~/edk2-custom
+          bash ./build.sh --device beryllium-tianma
+          mv ./boot-beryllium-tianma.img ~/edk2-custom
+          
+      - name: Build device beryllium-ebbg
+        run: |
+          cd $HOME/edk2-sdm845
+          bash ./build.sh --device beryllium-ebbg
+          mv ./boot-beryllium-ebbg.img ~/edk2-custom
+          
+      - name: Build device polaris
+        run: |
+          cd $HOME/edk2-sdm845
+          bash ./build.sh --device polaris
+          mv ./boot-polaris.img ~/edk2-custom
 
-      - name: Extract Driver Pack ${{ matrix.driver }}
+      - name: Extract Driver Pack beryllium
         run: |
           cd $HOME/WOA-Drivers
-          bash ./extract.sh ${{ matrix.driver }}
-          mv ./output ~/edk2-custom/${{ matrix.driver }}
+          bash ./extract.sh beryllium
+          mv ./output ~/edk2-custom/beryllium
+          
+      - name: Extract Driver Pack polaris
+        run: |
+          cd $HOME/WOA-Drivers
+          bash ./extract.sh polaris
+          mv ./output ~/edk2-custom/polaris
 
       - name: Compress LZMA2 for upload
         run: |
