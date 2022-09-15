@@ -748,62 +748,37 @@ Device (GPU0)
                 Package()
                 {
                     "PRIMARY_SOURCE_MODES",
-                    40,
-                    Package()
-                    {
-                        720,
-                        360,
-                    },
+                    21,
                     Package()
                     {
                         360,
                         720,
                     },
-                    Package()
-                    {
-                        512,
-                        384,
-                    },
+                    
                     Package()
                     {
                         384,
                         512,
                     },
-                    Package()
-                    {
-                        640,
-                        480,
-                    },
+                    
                     Package()
                     {
                         480,
                         640,
                     },
-                    Package()
-                    {
-                        960,
-                        480,
-                    },
+                    
                     Package()
                     {
                         480,
                         960,
                     },
-                    Package()
-                    {
-                        800,
-                        600,
-                    },
+                    
                     Package()
                     {
                         600,
                         800,
                     },
-                    Package()
-                    {
-                        960,
-                        540,
-                    },
+                    
                     Package()
                     {
                         540,
@@ -811,49 +786,38 @@ Device (GPU0)
                     },
                     Package()
                     {
-                        1024,
-                        768,
+                        540,
+                        1080,
+                    },
+                    Package()
+                    {
+                        640,
+                        1280,
                     },
                     Package()
                     {
                         768,
                         1024,
                     },
-                    Package()
-                    {
-                        1152,
-                        720,
-                    },
+                    
                     Package()
                     {
                         720,
                         1152,
                     },
-                    Package()
-                    {
-                        1152,
-                        768,
-                    },
+                    
                     Package()
                     {
                         768,
                         1152,
                     },
-                    Package()
-                    {
-                        1152,
-                        864,
-                    },
+                    
                     Package()
                     {
                         864,
                         1152,
                     },
-                    Package()
-                    {
-                        1280,
-                        720,
-                    },
+                    
                     Package()
                     {
                         720,
@@ -861,29 +825,16 @@ Device (GPU0)
                     },
                     Package()
                     {
-                        1280,
-                        768,
+                        720,
+                        1440,
                     },
                     Package()
                     {
                         768,
                         1280,
                     },
-                    Package()
-                    {
-                        1280,
-                        800,
-                    },
-                    Package()
-                    {
-                        800,
-                        1280,
-                    },
-                    Package()
-                    {
-                        1366,
-                        768,
-                    },
+                    
+                   
                     Package()
                     {
                         768,
@@ -891,28 +842,8 @@ Device (GPU0)
                     },
                     Package()
                     {
-                        1600,
-                        768,
-                    },
-                    Package()
-                    {
                         768,
                         1600,
-                    },
-                    Package()
-                    {
-                        1440,
-                        900,
-                    },
-                    Package()
-                    {
-                        900,
-                        1440,
-                    },
-                    Package()
-                    {
-                        1440,
-                        960,
                     },
                     Package()
                     {
@@ -921,28 +852,13 @@ Device (GPU0)
                     },
                     Package()
                     {
-                        1600,
-                        900,
-                    },
-                    Package()
-                    {
                         900,
                         1600,
                     },
                     Package()
                     {
-                        1920,
-                        1080,
-                    },
-                    Package()
-                    {
                         1080,
                         1920,
-                    },
-                    Package()
-                    {
-                        2160,
-                        1080,
                     },
                     Package()
                     {
