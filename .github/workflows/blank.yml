@@ -60,13 +60,13 @@ jobs:
           bash ./build.sh --device polaris
           mv ./boot-polaris.img $HOME/edk2-custom
 
-      - name: Extract Driver Pack beryllium
+      - name: Extract Driver Pack beryllium [unsigned]
         run: |
           cd $HOME/WOA-Drivers
           bash ./extract.sh beryllium
           mv ./output $HOME/edk2-custom/beryllium
           
-      - name: Extract Driver Pack polaris
+      - name: Extract Driver Pack polaris [unsigned]
         run: |
           cd $HOME/WOA-Drivers
           bash ./extract.sh polaris
